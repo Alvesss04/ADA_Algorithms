@@ -1,7 +1,5 @@
 package PraticalExs.DrinaDrone;
-
 import java.util.Arrays;
-
 public class DrinasClass {
 
     Offer[] res;    // Array of all offers (jobs) added to the system

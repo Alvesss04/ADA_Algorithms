@@ -1,9 +1,6 @@
 package PraticalExs.Legionellosis;
-
 import java.util.*;
-
 public class Legionellosis {
-
     private final int L;                // Total number of locations in the map
     private final List<Integer>[] adj;  // Adjacency list: adj[i] = list of neighbors of location i
 
@@ -38,10 +35,8 @@ public class Legionellosis {
 
         while (!queue.isEmpty()) {
             int cur = queue.poll(); // take the next location to process
-
             // If we've already reached maxDist, don't go further from this node
             if (dist[cur] >= maxDist) continue;
-
             // Explore all neighbors of the current location
             for (int neighbor : adj[cur]) {
                 if (!visited[neighbor]) {
@@ -57,14 +52,12 @@ public class Legionellosis {
         for (int i = 1; i <= L; i++)
             if (dist[i] >= 0 && dist[i] <= maxDist) // reached AND within allowed distance
                 result[i] = true;
-
         return result;
     }
 
     // Computes the perilous locations: locations reachable by ALL patients
     // patients[i] = { home, maxDist } for patient i
     public List<Integer> perilousLocations(int[][] patients) {
-
         // Start assuming every location is perilous
         // We will eliminate locations that are NOT reachable by any patient
         boolean[] perilous = new boolean[L + 1];
@@ -74,9 +67,7 @@ public class Legionellosis {
         for (int[] patient : patients) {
             int home    = patient[0]; // where this patient lives
             int maxDist = patient[1]; // how far they travelled at most
-
             boolean[] reach = reachable(home, maxDist);
-
             // Intersection: if a location is not in this patient's region, it's not perilous
             for (int i = 1; i <= L; i++)
                 if (!reach[i])
@@ -88,7 +79,6 @@ public class Legionellosis {
         for (int i = 1; i <= L; i++)
             if (perilous[i])
                 result.add(i);
-
         return result;
     }
 }

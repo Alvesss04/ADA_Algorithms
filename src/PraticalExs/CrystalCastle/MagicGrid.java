@@ -74,15 +74,12 @@ public class MagicGrid {
             dataTable[tr][tc][tm][tn] %= MODULO;
         }
     }
-
     public long result(){
         setValues();
         long result = 0;
         for (int j = 0; j <= maxConsecutive; j++)
             for (int k = 0; k <= maxJumps; k++)
                 result = (result + dataTable[rows - 1][columns - 1][j][k]) % MODULO;
-
-
         return result % MODULO;
     }
 }

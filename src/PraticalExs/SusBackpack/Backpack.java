@@ -61,6 +61,35 @@ public class Backpack {
         addEdge(chegadaY, partidaX); // y arrived before x left
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Kahn's Algorithm: topological sort / cycle detection
     // If we can process all nodes in topological order → no cycle → statements are consistent
     // If a cycle exists → some ordering constraint is contradictory → inconsistent
@@ -91,7 +120,6 @@ public class Backpack {
                 }
             }
         }
-
         // If all nodes were processed → no cycle → consistent witness statements
         // If some nodes remain (stuck in a cycle) → inconsistent
         return numProcNodes == numNodes;
